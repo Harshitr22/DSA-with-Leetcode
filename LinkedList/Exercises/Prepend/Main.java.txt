@@ -1,0 +1,11 @@
+public class LLMain {
+    public static void main(String[] args){
+        LinkedList linkedList = new LinkedList(1);
+	
+	System.out.println("Prepending a value: ");
+        linkedList.prepend(2);
+        linkedList.printList();
+        linkedList.getHead();
+        System.out.println();
+    }
+}
