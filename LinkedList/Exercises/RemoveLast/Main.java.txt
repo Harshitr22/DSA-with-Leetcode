@@ -1,0 +1,14 @@
+public class LLMain {
+    public static void main(String[] args){
+        LinkedList linkedList = new LinkedList(1);
+
+	System.out.println("Deleting the last value:");
+        System.out.println("Deleted Value: " + linkedList.removeLast().value); // 2 values
+	//System.out.println("Deleted Value: " + linkedList.removeLast().value); // 1 value
+	//ystem.out.println("Deleted Value: " + linkedList.removeLast()); // 0 values
+        linkedList.printList();
+	//linkedList.getTail();
+        linkedList.getLength();
+        System.out.println();
+   }
+}

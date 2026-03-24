@@ -1,0 +1,12 @@
+public class LLMain {
+    public static void main(String[] args){
+        LinkedList linkedList = new LinkedList(1);
+
+        System.out.println("Before Appending a value: ");
+        linkedList.getHead();
+        linkedList.getTail();
+        linkedList.getLength();
+        linkedList.printList();
+        System.out.println();
+    }
+}
