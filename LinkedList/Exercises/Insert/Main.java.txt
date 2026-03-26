@@ -1,0 +1,24 @@
+public class LLMain {
+    public static void main(String[] args){
+        LinkedList linkedList = new LinkedList(1);
+
+        System.out.println("Before Appending a value: ");
+        linkedList.getHead();
+        linkedList.getTail();
+        linkedList.getLength();
+        linkedList.printList();
+        System.out.println();
+
+        System.out.println("After Appending a value: ");
+        linkedList.append(5);
+        linkedList.append(7);
+        linkedList.append(10);
+        linkedList.append(4);
+        linkedList.append(9);
+
+	System.out.println("Inserting the new value in a the list:");
+        System.out.println("The value was inserted: " + linkedList.insert(3,18));
+        linkedList.printList();
+        System.out.println();
+    }
+}
