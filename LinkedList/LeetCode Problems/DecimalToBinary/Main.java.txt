@@ -1,0 +1,26 @@
+public class LLMain {
+    public static void main(String[] args){
+        LinkedList linkedList = new LinkedList(1);
+
+        System.out.println("Before Appending a value: ");
+        linkedList.getHead();
+        linkedList.getTail();
+        linkedList.getLength();
+        linkedList.printList();
+        System.out.println();
+
+        System.out.println("After Appending a value: ");
+        linkedList.append(1);
+        linkedList.append(0);
+        linkedList.append(0);
+        linkedList.append(1);
+        linkedList.append(1);
+
+	// For this to work, we need to append th list and make it some binary number:
+        System.out.println("Converting the binary number to decimal: ");
+        System.out.println("The Binary number is a s follows: ");
+        linkedList.printList();        
+	System.out.println("The decimal number that this binary number converts to is: " + linkedList.decimalToBinary());
+
+    }
+}

@@ -1,0 +1,60 @@
+public class LinkedList {
+    private Node head;
+    private Node tail;
+    private int length;
+
+    class Node{
+        int value;
+        Node next;
+
+        Node(int value) {
+            this.value = value;
+        }
+    }
+
+    LinkedList(int value){
+        Node newNode = new Node(value);
+        head = newNode;
+        tail = newNode;
+        length = 1;
+    }
+
+    public void getHead(){
+        System.out.println("Head: " + head.value);
+    }
+
+    public void getTail(){
+        System.out.println("Tail: " + tail.value);
+    }
+
+    public void getLength(){
+        System.out.println("Length: " + length);
+    }
+
+    public void printList(){
+        Node temp = head;
+        System.out.print("The Items in List are: ");
+        while(temp != null){
+            System.out.print( temp.value + " -> ");
+            temp = temp.next;
+        }
+        System.out.print("null");
+        System.out.println();
+    }
+ 
+    // Converting the decimal numbers in binary
+    public int decimalToBinary(){
+        // formula: the thing to watch in it that if the node.value is 1 is gets multiplied with 	//that and vice versa
+        // if n=0, 0*2 + 1 = 1 | n=1, 1*2 + 0 = 2 | n=2, 2*2 + 0 = 4 | n=3, 3*2 + 0 = 6,
+        // what we learnt from this was that if we keep multiplying 2 with the total value in 		//the formula, we would find the answer
+        // Formula being the N = N*2 + currentNode.value ( where the value of N is total suk at 	//the moment
+        int num = 0;
+        Node currentNode = head;
+        while(currentNode != null){
+            num = num*2 + currentNode.value;
+            currentNode = currentNode.next;
+        }
+        return num;
+    }
+
+}
