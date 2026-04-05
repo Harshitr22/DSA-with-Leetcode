@@ -57,6 +57,7 @@ public class DoublyLinkedList {
         length++;
     }
 
+
     public void prepend(int value){
         Node newNode = new Node(value);
         if(length == 0){
