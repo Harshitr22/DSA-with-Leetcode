@@ -1,0 +1,63 @@
+public class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+    private int length;
+
+    class Node{
+        int value;
+        Node next;
+        Node prev;
+
+        Node(int value){
+            this.value = value;
+        }
+    }
+
+    DoublyLinkedList(int value){
+        Node newNode = new Node(value);
+        head = newNode;
+        tail = newNode;
+        length = 1;
+    }
+
+    public void getHead() {
+        System.out.println("Head: " + head.value);
+    }
+
+    public void getTail() {
+        System.out.println("Tail: " + tail.value);
+    }
+
+    public void getLength() {
+        System.out.println("Length: " + length);
+    }
+
+    public void printList(){
+        Node tempo = head;
+        System.out.print("The Items in List are: ");
+        while(tempo != null){
+            System.out.print( tempo.value + " <-> ");
+            tempo = tempo.next;
+        }
+        System.out.print("null");
+        System.out.println();
+    }
+
+
+    public Node get(int value){
+        if(value < 0 || value >= length) return null;
+        Node temp = head;
+        if(value < length/2){
+            for(int i = 0; i < value; i++){
+                temp = temp.next;
+            }
+        }else{
+            temp = tail;
+            for(int i=length-1; i>value; i--){
+                temp = temp.prev;
+            }
+        }
+        return temp;
+    }
+
+}
