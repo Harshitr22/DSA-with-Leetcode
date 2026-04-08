@@ -1,0 +1,29 @@
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList myDLL = new DoublyLinkedList(14);
+
+        myDLL.printList();
+        myDLL.getHead();
+        myDLL.getTail();
+        myDLL.getLength();
+
+        // Testing to see if append functions works
+        System.out.println("Adding new element at the end of the list: ");
+        myDLL.printList();
+        myDLL.append(7);
+        myDLL.append(5);
+        myDLL.append(8);
+        myDLL.append(9);
+        myDLL.printList();
+        System.out.println();
+
+	//Checking if the set function works as desired and properly
+        System.out.println("Setting up th value of the Node at an certain index: ");
+        myDLL.printList();
+        System.out.println("The value at certain index was changed: " + myDLL.set(9, 14));
+        myDLL.printList();
+        System.out.println();
+
+    }
+
+}
