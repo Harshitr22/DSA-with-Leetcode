@@ -1,0 +1,29 @@
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList myDLL = new DoublyLinkedList(14);
+
+        myDLL.printList();
+        myDLL.getHead();
+        myDLL.getTail();
+        myDLL.getLength();
+
+        // Testing to see if append functions works
+        System.out.println("Adding new element at the end of the list: ");
+        myDLL.printList();
+        myDLL.append(7);
+        myDLL.append(5);
+        myDLL.append(8);
+        myDLL.append(9);
+        myDLL.printList();
+        System.out.println();
+
+	//testing to check if the palindrome function works or needs to be checked
+        System.out.println("Checking of the given list is a Palindrome: ");
+        //myDLL.remove(2); // This is to check if the function works for the even number of items in the list
+        myDLL.printList();
+        System.out.println("The given list is a palindrome: " + myDLL.isPalindrome());
+        System.out.println();
+
+    }
+
+}

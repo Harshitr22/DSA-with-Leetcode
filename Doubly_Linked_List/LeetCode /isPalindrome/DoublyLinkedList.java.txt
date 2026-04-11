@@ -1,0 +1,78 @@
+public class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+    private int length;
+
+    class Node{
+        int value;
+        Node next;
+        Node prev;
+
+        Node(int value){
+            this.value = value;
+        }
+    }
+
+    DoublyLinkedList(int value){
+        Node newNode = new Node(value);
+        head = newNode;
+        tail = newNode;
+        length = 1;
+    }
+
+    public void getHead() {
+        System.out.println("Head: " + head.value);
+    }
+
+    public void getTail() {
+        System.out.println("Tail: " + tail.value);
+    }
+
+    public void getLength() {
+        System.out.println("Length: " + length);
+    }
+
+    public void printList(){
+        Node tempo = head;
+        System.out.print("The Items in List are: ");
+        while(tempo != null){
+            System.out.print( tempo.value + " <-> ");
+            tempo = tempo.next;
+        }
+        System.out.print("null");
+        System.out.println();
+    }
+
+    // Adding a new node at the end of the list
+    public void append(int value){
+        Node newNode = new Node(value);
+        if(length == 0){
+            head = newNode;
+            tail = newNode;
+        }else{
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+        length++;
+    }
+  
+    
+    // Implementing the palindrome function, the while loop i sok as well but not the most optimal
+    public boolean isPalindrome(){
+        if(length == 0) return false;
+        if(length == 1) return true;
+        Node forward = head;
+        Node backward = tail;
+        //while(forward != backward){
+        for(int i=0; i<length/2; i++){
+            if(forward.value != backward.value){
+                return false;
+            }
+            forward = forward.next;
+            backward = backward.prev;
+        }
+        return true;
+    }
+
+}
