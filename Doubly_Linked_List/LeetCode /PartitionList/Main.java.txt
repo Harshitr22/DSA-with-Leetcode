@@ -1,0 +1,29 @@
+public class Main {
+    public static void main(String[] args) {
+        DoublyLinkedList myDLL = new DoublyLinkedList(14);
+
+        myDLL.printList();
+        myDLL.getHead();
+        myDLL.getTail();
+        myDLL.getLength();
+
+        // Testing to see if append functions works
+        System.out.println("Adding new element at the end of the list: ");
+        myDLL.printList();
+        myDLL.append(7);
+        myDLL.append(5);
+        myDLL.append(8);
+        myDLL.append(9);
+        myDLL.printList();
+        System.out.println();
+
+	//Testing to check if the partition list is finally working ?
+        System.out.println("Testing out the function of partition list on DLL");
+        myDLL.printList();
+        myDLL.partitionList(9);
+        myDLL.printList();
+        System.out.println();
+
+    }
+
+}
