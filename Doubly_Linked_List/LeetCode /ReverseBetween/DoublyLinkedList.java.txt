@@ -1,0 +1,60 @@
+ public void reverseBetween(int startIndex, int endIndex){
+        Node dummyNode = new Node(0);
+        dummyNode.next = head;
+        head.prev = dummyNode;
+        Node prevNode = dummyNode;
+
+        for(int i=0; i<startIndex; i++){
+            prevNode = prevNode.next;
+        }
+
+        Node current = prevNode.next;
+        for(int i=0; i<endIndex-startIndex; i++){
+            Node nodeToMove = current.next;
+
+            current.next = nodeToMove.next;
+            if(nodeToMove.next != null){
+                nodeToMove.next.prev = current;
+            }
+
+            nodeToMove.next = prevNode.next;
+            nodeToMove.prev = prevNode;
+            prevNode.next.prev = nodeToMove;
+            prevNode.next = nodeToMove;
+        }
+
+        head = dummyNode.next;
+        head.prev = null;
+    }
+
+
+    public void reverseBetween(int startIndex, int endIndex){
+        Node dummyNode = new Node(0);
+        dummyNode.next = head;
+        head.prev = dummyNode;
+        Node prevNode = dummyNode;
+
+        for(int i=0; i<startIndex; i++){
+            prevNode = prevNode.next;
+        }
+
+        Node current = prevNode.next;
+        for(int i=0; i<endIndex-startIndex; i++){
+            Node nodeToMove = current.next;
+
+            current.next = nodeToMove.next;
+            if(nodeToMove.next != null){
+                nodeToMove.next.prev = current;
+            }
+
+            nodeToMove.next = prevNode.next;
+            nodeToMove.prev = prevNode;
+            prevNode.next.prev = nodeToMove;
+            prevNode.next = nodeToMove;
+        }
+
+        head = dummyNode.next;
+        head.prev = null;
+    }
+
+}
