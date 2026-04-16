@@ -1,0 +1,28 @@
+public class Stack {
+    private int height;
+    private Node top;
+
+    Stack(int value){
+        Node newNode = new Node(value);
+        top = newNode;
+        height = 1;
+    }
+
+    class Node{
+        int value;
+        Node next;
+
+        Node(int value){
+            this.value = value;
+        }
+    }
+
+    public void getTop(){
+        System.out.println("The top of the Stack is: " + top.value);
+    }
+
+    public void getHeight(){
+        System.out.println("The height of the Stack is: " + height);
+    }
+
+}
