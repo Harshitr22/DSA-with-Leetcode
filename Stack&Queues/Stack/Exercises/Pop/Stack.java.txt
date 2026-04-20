@@ -49,7 +49,17 @@ public class Stack {
     }
 
     // Removing the element from the stack
-
+    public Node pop(){
+        if(height == 0) return null;
+        Node temp = top;
+        if(height == 1 ){
+            top = null;
+        }else{
+            top = top.next;
+            temp.next = null;
+        }
+        height--;
+        return temp;
     }
 
 }
