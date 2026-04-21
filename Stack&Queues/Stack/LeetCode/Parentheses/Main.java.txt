@@ -1,0 +1,40 @@
+public class Main {
+
+    public static boolean isBalancedParentheses(String string){
+        if(string.isEmpty()) return true;
+        SStack<Character> stack = new SStack<Character>();
+        for(int i = 0; i < string.length(); i++){
+            if(string.charAt(i) == '('){
+                stack.push(string.charAt(i));
+            }
+            if(string.charAt(i) == ')'){
+                if(stack.isEmpty()){
+                    return false;
+                }
+                stack.pop();
+            }
+        }
+        if(!stack.isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+       //Test to check if the string is getting reversed correctly
+       System.out.println("Reversing the given string: ");
+       System.out.println("Input: 'abc !'");
+       System.out.println("Expected: '! cba'");
+       System.out.println("Actual: '" + reverseString("abc !") + "'");
+       System.out.println("--------------");
+       System.out.println("Input: 'hello'");
+       System.out.println("Expected: 'olleh'");
+       System.out.println("Actual: '" + reverseString("hello") + "'");
+       System.out.println();
+
+    }
+
+}
