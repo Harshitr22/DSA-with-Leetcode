@@ -1,0 +1,20 @@
+public class Main {
+
+  public static void main(String[] args) {
+
+ 	//Testing to check if the Push function works in ArrayList - Push multiple elements
+        System.out.println("Pushing Multiple Elements in the ArrayList:");
+        SStack<Integer> stacks = new SStack<Integer>();
+        stacks.push(1);
+        stacks.push(2);
+        stacks.push(3);
+        System.out.println("Expected Stack (top to bottom): 3, 2, 1");
+        System.out.println("Actual Stack:");
+        stacks.printStack();
+        System.out.println("Peek: " + stacks.peek());
+        System.out.println("Size: " + stacks.size());
+        System.out.println();
+
+  }
+
+}
