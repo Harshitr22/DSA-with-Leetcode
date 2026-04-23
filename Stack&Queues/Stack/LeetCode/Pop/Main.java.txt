@@ -1,0 +1,19 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        //Testing to check if the Pop function works in ArrayList
+        System.out.println("Popping Single Element in the ArrayList:");
+        stacks = new SStack<Integer>();
+        stacks.push(10);
+        System.out.println("Popped: " + stacks.pop());
+        System.out.println("Expected Stack: empty");
+        System.out.println("Actual Stack:");
+        stacks.printStack();
+        System.out.println("Peek: " + stacks.peek());
+        System.out.println("Size: " + stacks.size());
+        System.out.println();
+
+     }
+
+}
