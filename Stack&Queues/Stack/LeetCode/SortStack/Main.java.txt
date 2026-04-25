@@ -1,0 +1,40 @@
+public class Main {
+
+    public static Stack<Integer> sortStack(Stack<Integer> original){
+        if(original.isEmpty()) return null;
+        Stack<Integer> sorted = new Stack<>();
+        sorted.push(original.peek());
+        original.pop();
+        
+        while(!original.isEmpty()){
+            int temp = original.pop();
+            while(!sorted.isEmpty() && sorted.peek() > temp){
+                original.push(sorted.peek());
+                sorted.pop();
+            }
+            sorted.push(temp);
+        }
+        
+        while(!sorted.isEmpty()){
+            original.push(sorted.peek());
+            sorted.pop();
+        }
+        return original;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("Test 3: Unsorted Stack");
+        stack = new Stack<>();
+        stack.push(3);
+        stack.push(1);
+        stack.push(4);
+        stack.push(2);
+        sortStack(stack);
+        System.out.println("Expected (top to bottom): 1, 2, 3, 4");
+        stack.printStack();
+        System.out.println();
+
+    }
+
+}
