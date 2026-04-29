@@ -1,0 +1,34 @@
+public class Main {
+    public static void main(String[] args) {
+        Queue queue = new Queue(3);
+
+        queue.getFirst();
+        queue.getLast();
+        queue.getLength();
+        System.out.println();
+
+        //Testing to check if a new element gets added in the list
+        System.out.println("Adding a new element in the queue, also called enqueue");
+        queue.printQueue();
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(4);
+        queue.printQueue();
+        queue.getFirst();
+        queue.getLast();
+        queue.getLength();
+        System.out.println();
+
+        //Testing to check if dequeue can remove an element from the list
+        System.out.println("Removing an element from the queue, also called (Dequeue)");
+        queue.printQueue();
+        System.out.println("The Node which has been deleted is: " + queue.dequeue().value);
+        queue.printQueue();
+        queue.getFirst();
+        queue.getLast();
+        queue.getLength();
+        System.out.println();
+
+    }
+
+}
