@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+
+       //Testing to check if enqueue method which is implemented using the stack works as desired:
+        System.out.println("Enqueuing an element using the stack data structure: ");
+        MyQueue queues = new MyQueue();
+        System.out.println("Before Enqueue: ");
+        queues.print();
+        System.out.println("After Enqueue: ");
+        queues.enqueue(10);
+        queues.enqueue(11);
+        queues.enqueue(12);
+        queues.print();
+        System.out.println();
+
+    }
+
+}
