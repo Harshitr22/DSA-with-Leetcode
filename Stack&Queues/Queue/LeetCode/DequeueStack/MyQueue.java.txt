@@ -1,0 +1,51 @@
+import java.util.Stack;
+
+public class MyQueue {
+    private Stack<Integer> stack1;
+    private Stack<Integer> stack2;
+
+    MyQueue(){
+        stack1 = new Stack<>();
+        stack2 = new Stack<>();
+    }
+
+    // Implementing enqueue method using stack
+    public void enqueue(int value) {
+        if(stack1.isEmpty()) {
+            stack1.push(value);
+        }else {
+            while(!stack1.isEmpty()){
+                stack2.push(stack1.pop());
+            }
+            stack1.push(value);
+            while(!stack2.isEmpty()){
+                stack1.push(stack2.pop());
+            }
+        }
+    }
+
+    public int dequeue() {
+        if(stack1.isEmpty()) return -1;
+        return stack1.pop();
+    }
+
+    public void print() {
+        if(stack1.isEmpty()){
+            System.out.println("<-- Queue is empty -->");
+            return;
+        }
+        System.out.println("Items in Queue: ");
+        for (int i = stack1.size()-1; i >= 0; i--) {
+            System.out.println("↑");
+            System.out.println(stack1.get(i));
+        }
+    }
+
+    public int peek() {
+        return stack1.peek();
+    }
+
+    public boolean isEmpty() {
+        return stack1.isEmpty();
+    }
+}
