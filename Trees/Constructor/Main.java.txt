@@ -1,0 +1,7 @@
+public class Main {
+    public static void main(String[] args) {
+        BinarySearchTree myBST = new BinarySearchTree();
+        System.out.println("The Root of the BST is: " + myBST.root);
+
+    }
+}
