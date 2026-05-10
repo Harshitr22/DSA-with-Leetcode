@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String[] args) {
+        BinarySearchTree myBST = new BinarySearchTree();
+
+        // Testing to check if the root is set correctly
+        // To be able to run this, we need to set the root from private to just Node root
+        //System.out.println("The Root of the BST is: " + myBST.root);
+
+        // Testing to check if the insert function works
+        System.out.println("Inserting a new Node/element in the tree following the hierarchy");
+        myBST.printTree();
+        System.out.println("The Node was inserted at the correct index: " + myBST.insert(12));
+        myBST.insert(83);
+        myBST.insert(10);
+        myBST.insert(15);
+
+        myBST.printTree();
+        System.out.println();
+    }
+}
