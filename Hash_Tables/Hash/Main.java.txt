@@ -1,0 +1,22 @@
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        myHashTable.printTable();
+
+        //Experimenting to check of the formulation works
+//        char[] chars = {'A', 'b'};
+//        int ascii = chars[0];
+//        System.out.println((ascii*23) % 7);
+
+        //Testing to check if the hash method actually able to transform the character to an ASCII value
+
+
+        System.out.println("Checking if the HASH methods works properly: ");
+        System.out.println("The hash value of the character 'a' is: " + myHashTable.hash("a"));
+        System.out.println();
+
+   }
+
+}
