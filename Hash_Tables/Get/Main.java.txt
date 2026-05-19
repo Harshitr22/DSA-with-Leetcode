@@ -1,0 +1,44 @@
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        myHashTable.printTable();
+
+        //Experimenting to check of the formulation works
+//        char[] chars = {'A', 'b'};
+//        int ascii = chars[0];
+//        System.out.println((ascii*23) % 7);
+
+        //Testing to check if the hash method actually able to transform the character to an ASCII value
+
+
+        System.out.println("Checking if the HASH methods works properly: ");
+        System.out.println("The hash value of the character 'a' is: " + myHashTable.hash("a"));
+        System.out.println();
+
+        //Testing to check if the set method works
+        System.out.println("Implementing SET method to add a new element in the list by calculating hash itself: ");
+        System.out.println("Before using SET method: ");
+        myHashTable.printTable();
+        System.out.println("After using SET method:");
+        myHashTable.set("nails", 100);
+        myHashTable.set("tile", 50);
+        myHashTable.set("lumber", 80);
+        myHashTable.set("bolts", 200);
+        myHashTable.set("screws", 140);
+        myHashTable.printTable();
+        System.out.println();
+
+        //Testing of the get method
+        System.out.println("Implementing GET method to get the value of the element in the list: ");
+        myHashTable.printTable();
+        System.out.println("The value of the element 'bolts' is: " + myHashTable.get("bolts"));
+        System.out.println("The value of the element 'hammer' is: " + myHashTable.get("hammer"));
+        System.out.println("The value of the element 'lumber' is: " + myHashTable.get("lumber"));
+        System.out.println();
+
+
+    }
+
+}
