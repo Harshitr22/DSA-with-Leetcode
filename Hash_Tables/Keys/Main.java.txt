@@ -1,0 +1,28 @@
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        myHashTable.printTable();
+
+
+         System.out.println("Implementing SET method to add a new element in the list by calculating hash itself: ");
+        System.out.println("Before using SET method: ");
+        myHashTable.printTable();
+        System.out.println("After using SET method:");
+        myHashTable.set("nails", 100);
+        myHashTable.set("tile", 50);
+        myHashTable.set("lumber", 80);
+        myHashTable.set("bolts", 200);
+        myHashTable.set("screws", 140);
+        myHashTable.printTable();
+        System.out.println();
+
+
+       //Testing if all the keys are returned in the arraylist
+        System.out.println("Testing if all the keys are returned in the arraylist: ");
+        myHashTable.printTable();
+        System.out.println("All the keys present are: " + myHashTable.keys());
+
+    }
+}
