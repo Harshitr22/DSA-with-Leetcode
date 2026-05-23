@@ -1,0 +1,32 @@
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+        //Testing the brute force approach operating of the item in common operation
+        System.out.println("Finding common items between two arrays (OPTIMAL APPROACH): ");
+        int[] array0 = {1, 3, 5};
+        int[] array = {7,9, 11};
+        System.out.println("There are some items which are common in these arrays: " + itemInCommon(array0, array));
+        System.out.println();
+
+
+    }
+
+
+    // This approach is the OPTIMAL APPROACH
+    public static boolean itemInCommon(int[] array1, int[] array2){
+        HashMap<Integer, Boolean> hashMap = new HashMap<>();
+
+        for(int i : array1){
+            hashMap.put(i, true);
+        }
+
+        for(int j : array2){
+            if(hashMap.get(j) != null) return true;
+        }
+        return false;
+    }
+
+}
