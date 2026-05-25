@@ -1,0 +1,22 @@
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+  
+ 
+        //Testing to check if the finding duplicates method works
+        System.out.println("Finding if there are the duplicates in the array: ");
+        int[] items = {5,5,5,5};
+        System.out.println("The array is: ");
+        System.out.print("{ ");
+        for(int i : items){
+            System.out.print( i + ", ");
+        }
+        System.out.print("}");
+        System.out.println();
+        System.out.println("The duplicates in the array are : " + myHashTable.findDuplicates(items));
+        System.out.println();
+
+    }
+
+}
