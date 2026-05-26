@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+         // Testing if the method can find the first non-repeating character
+        System.out.println("Finding the first non-repeating character in the string: ");
+        String word = "alphabet";
+        System.out.println("The given string is: " + word);
+        System.out.println("The first non-repeating character is: " + myHashTable.firstNonRepeatingCharacter(word));
+        System.out.println();
+
+    }
+
+}
