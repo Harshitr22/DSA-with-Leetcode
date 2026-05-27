@@ -1,0 +1,30 @@
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        //Testing to check if the method can find and group the anagrams
+        System.out.println("Finding and grouping the anagrams in the given array of strings: ");
+        String[] words = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        String[] wordNew = {"bat", "tab"};
+        System.out.println("The given array of strings is: ");
+        System.out.print("{ ");
+        for(String s : words){
+            System.out.print(s + ", ");
+        }
+        System.out.print("}");
+        System.out.println();
+        System.out.println("The anagrams are: ");
+        System.out.print("{ ");
+        List<List<String>> solution = myHashTable.groupAnagrams(wordNew);
+        for(List<String> list : solution){
+            System.out.print(list + ", ");
+        }
+        System.out.print("}");
+        System.out.println();
+
+        
+
+    }
+
+}

@@ -1,0 +1,56 @@
+import java.util.*;
+
+public class HashTable {
+    private int size = 7;
+    private Node[] dataMap;
+
+    class Node{
+        String key;
+        int value;
+        Node next;
+
+        Node(String key, int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    HashTable(){
+        dataMap = new Node[size];
+    }
+
+    //Printing the hash table
+    public void printTable(){
+        for(int i=0; i< dataMap.length; i++){
+            System.out.println(i + ": ");
+            Node temp = dataMap[i];
+            while(temp != null){
+                System.out.println("  {" + temp.key + " : " + temp.value + "}");
+                temp = temp.next;
+            }
+        }
+    }
+
+    //Method to join together all the anagrams (words which has same letters and same number of times appear in the word
+    public List<List<String>> groupAnagrams(String[] strings){
+        Map<String, ArrayList<String>> map = new HashMap<>();
+        for(String words : strings){
+            char[] wordChar = words.toCharArray();
+            Arrays.sort(wordChar);
+            String sortedWord = new String(wordChar);
+            if(map.containsKey(sortedWord)){
+                map.get(sortedWord).add(words);
+            }else{
+                map.put(sortedWord, new ArrayList<>(List.of(words)));
+            }
+        }
+
+        List<List<String>> anagrams = new ArrayList<>();
+        for(Map.Entry<String, ArrayList<String>> entry : map.entrySet()){
+            anagrams.add(entry.getValue());
+        }
+
+        return anagrams;
+    }
+
+}
