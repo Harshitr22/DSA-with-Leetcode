@@ -1,0 +1,30 @@
+mport java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        //Testing out to check if the TwoSum method works
+        System.out.println("Testing to check if the TwoSum method is able to find two number that adds up to give the target value: ");
+        int[] numbers = {2, 9, 6, 11, 15, 3};
+        System.out.println("The given array of numbers: ");
+        System.out.print("{ ");
+        for(int s : numbers){
+            System.out.print(s + ", ");
+        }
+        System.out.print("}");
+        System.out.println();
+        ArrayList<Integer> answers = myHashTable.twoSum(numbers, 9);
+        System.out.println("The two numbers are: ");
+        System.out.print("{ ");
+        for(Integer i : answers){
+            System.out.print(i + ", ");
+        }
+        System.out.print("}");
+   
+    }
+
+}

@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class HashTable {
+    private int size = 7;
+    private Node[] dataMap;
+
+    class Node{
+        String key;
+        int value;
+        Node next;
+
+        Node(String key, int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    HashTable(){
+        dataMap = new Node[size];
+    }
+
+
+    // Method to find the two numbers which will add up to make the target number
+    public ArrayList<Integer> twoSum(int[] numbers, int target){
+        Map<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer> indices = new ArrayList<>();
+
+        for(int i =0; i<numbers.length; i++){
+            int desiredValue = target - numbers[i];
+            if(map.containsKey(desiredValue)){
+                indices.add(i+1);
+                indices.add(map.get(desiredValue) + 1);
+                return indices;
+            }else{
+                map.put(numbers[i], i);
+            }
+        }
+        return null;
+    }
+
+}
