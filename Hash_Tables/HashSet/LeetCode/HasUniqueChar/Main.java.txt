@@ -1,0 +1,21 @@
+import java.util.HashMap;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        myHashTable.printTable();
+
+        //Testing to check if the string has all the unique characters and not repetitive
+        System.out.println("Testing to check if the string has all the unique characters and not repetitive: ");
+        String string1 = "success";
+        String string2 = "AbC!@)";
+        System.out.println("The String : (" + string1 + ") has all unique characters: " + myHashTable.hasUniqueChars(string1));
+        System.out.println("The String : (" + string2 + ") has all unique characters: " + myHashTable.hasUniqueChars(string2));
+        System.out.println();
+
+   }
+
+}

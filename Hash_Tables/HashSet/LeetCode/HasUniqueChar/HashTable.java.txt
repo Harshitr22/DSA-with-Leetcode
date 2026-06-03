@@ -1,0 +1,33 @@
+public class HashTable {
+    private int size = 7;
+    private Node[] dataMap;
+
+    class Node{
+        String key;
+        int value;
+        Node next;
+
+        Node(String key, int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    HashTable(){
+        dataMap = new Node[size];
+    }
+
+    //Method to check if the strong has all the unique character in a string
+    public boolean hasUniqueChars(String string){
+        Set<Character> chars = new HashSet<>();
+        for(char c : string.toCharArray()){
+            if(chars.contains(c)){
+                return false;
+            }else{
+                chars.add(c);
+            }
+        }
+        return true;
+    }
+
+}
