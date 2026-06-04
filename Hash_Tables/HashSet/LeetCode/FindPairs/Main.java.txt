@@ -1,0 +1,43 @@
+import java.util.HashMap;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+
+        HashTable myHashTable = new HashTable();
+
+        myHashTable.printTable();
+
+        //testing to check if the method is able to find one number from each array to make it equal tp target
+        System.out.println("Testing to check if the method is able to find one number from each array to make it equal to target: ");
+        int[] array3     = {1, 2, 3, 4, 5};
+        int[] array4 = {2, 4, 6, 8, 10};
+        System.out.println("The Given arrays are: ");
+        System.out.print("{ ");
+        for(int i=0; i<array3.length; i++){
+            System.out.print(array3[i]);
+            if(i != array3.length-1) System.out.print(", ");
+        }
+        System.out.print(" }");
+        System.out.println();
+        System.out.print("{ ");
+        for(int i=0; i<array4.length; i++){
+            System.out.print(array4[i]);
+            if(i != array4.length-1) System.out.print(", ");
+        }
+        System.out.print(" }");
+        System.out.println();
+        System.out.println("The numbers that are equal to the target value are: ");
+        List<int[]> pairs = myHashTable.findPairs(array3, array4, 9);
+        System.out.print("{ ");
+        for(int[] pair : pairs){
+            System.out.print("(" + pair[0] + ", " + pair[1] + ")");
+            if(pair != pairs.getLast()) System.out.print(", ");
+        }
+        System.out.print(" }");
+        System.out.println();
+        System.out.println();
+
+   }
+
+}

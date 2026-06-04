@@ -1,0 +1,37 @@
+public class HashTable {
+    private int size = 7;
+    private Node[] dataMap;
+
+    class Node{
+        String key;
+        int value;
+        Node next;
+
+        Node(String key, int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    HashTable(){
+        dataMap = new Node[size];
+    }
+
+    //Finding Pairs
+    public List<int[]> findPairs(int[] array1, int[] array2, int target){
+        Set<Integer> set = new HashSet<>();
+        List<int[]> pairs = new ArrayList<>();
+        for(int i : array1){
+            set.add(i);
+        }
+
+        for(int i=0; i<array2.length; i++){
+            int desiredValue = target - array2[i];
+            if(set.contains(desiredValue)){
+                pairs.add(new int[]{desiredValue, array2[i]});
+            }
+        }
+        return pairs;
+    }
+
+}
