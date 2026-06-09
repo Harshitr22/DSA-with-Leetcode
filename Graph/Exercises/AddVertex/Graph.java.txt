@@ -1,0 +1,42 @@
+public class HashTable {
+    private int size = 7;
+    private Node[] dataMap;
+
+    class Node{
+        String key;
+        int value;
+        Node next;
+
+        Node(String key, int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    HashTable(){
+        dataMap = new Node[size];
+    }
+
+    
+    //Finding consecutive numbers
+    public int longestConsecutiveNumber(int[] nums){
+        Set<Integer> set = new HashSet<>();
+        for(int i : nums){
+            set.add(i);
+        }
+
+        int longestStreak = 0;
+        for(int i = 0; i<nums.length; i++){
+            int currentStreak = 0;
+            if(set.contains(nums[i]-1)) {
+                continue;
+            }
+            while(set.contains(nums[i]++)){
+                currentStreak++;
+            }
+            longestStreak = Math.max(longestStreak, currentStreak);
+        }
+        return longestStreak;
+    }
+
+}
