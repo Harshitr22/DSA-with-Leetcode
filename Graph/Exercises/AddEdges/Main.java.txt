@@ -1,0 +1,16 @@
+public class Main {
+    public static void main(String[] args){
+        Graph graph = new Graph();
+        graph.printGraph();
+
+         //Adding a new Edge in the graph
+        System.out.println("Adding a new vertex in the graph");
+        System.out.print("The Elements in the list are: ");
+        graph.printGraph();
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("C","A"));
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("B","A"));
+        graph.printGraph();
+        System.out.println();
+
+    }
+}
