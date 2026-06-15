@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Graph {
+    private HashMap<String, ArrayList<String>> map = new HashMap<>();
+
+    public void printGraph(){
+        System.out.println(map);
+    }
+
+     //Removing the edge from the graph
+    public boolean removeEdge(String vertex1, String vertex2){
+        if(map.get(vertex1) == null || map.get(vertex2) == null) return false;
+        if(map.get(vertex1).contains(vertex2) || map.get(vertex2).contains(vertex1))  return false;
+        map.get(vertex1).remove(vertex2);
+        map.get(vertex2).remove(vertex1);
+        return true;
+    }
+
+
+}

@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args){
+        Graph graph = new Graph();
+        graph.printGraph();
+
+        //Removing the edge from the graph
+        System.out.println("Removing an edge from the graph: ");
+        System.out.print("The Elements in the list are: ");
+        graph.printGraph();
+        System.out.println("The Edge was removed from the graph: " + graph.removeEdge("A","B"));
+        graph.printGraph();
+        System.out.println();
+
+    }
+}
