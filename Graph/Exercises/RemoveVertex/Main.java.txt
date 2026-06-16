@@ -1,0 +1,22 @@
+public class Main {
+    public static void main(String[] args){
+        Graph graph = new Graph();
+        graph.printGraph();
+
+         //Removing the vertex from the graph
+        System.out.println("Removing a complete from the graph and its edges: ");
+        graph.addVertex("D");
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("D","A"));
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("D","B"));
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("C","A"));
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("B","D"));
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("B", "A"));
+        System.out.println("The edge was was added in the graph: " + graph.addEdge("X", "A"));
+        System.out.print("The Elements in the list are: ");
+        graph.printGraph();
+        System.out.println("The Edge was removed from the graph: " + graph.removeVertex("G"));
+        graph.printGraph();
+        System.out.println();
+
+    }
+}
