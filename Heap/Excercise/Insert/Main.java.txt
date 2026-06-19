@@ -1,0 +1,16 @@
+public class Main {
+    public static void main(String[] args) {
+        Heap heap = new Heap();
+
+        //Adding a new element in the heap
+        System.out.println("Adding a new element in the heap: ");
+        System.out.print("Before adding any element in  the heap: ");
+        heap.printHeap();
+        heap.insert(10);
+        heap.insert(20);
+        heap.insert(30);
+        System.out.println("After adding elements in  the heap: ");
+        heap.printHeap();
+        System.out.println();
+    }
+}
