@@ -1,0 +1,28 @@
+public class Main {
+    public static void main(String[] args) {
+        Heap heap = new Heap();
+
+        //Adding a new element in the heap
+        System.out.println("Adding a new element in the heap: ");
+        System.out.print("Before adding any element in  the heap: ");
+        heap.printHeap();
+        heap.insert(95);
+        heap.insert(75);
+        heap.insert(80);
+        heap.insert(55);
+        heap.insert(60);
+        heap.insert(50);
+        heap.insert(65);
+        System.out.println("After adding elements in  the heap: ");
+        heap.printHeap();
+        System.out.println();
+
+        //Removing an element from the heap
+        System.out.println("Removing an element from the heap: ");
+        System.out.println("Heap Before removing any element: ");
+        heap.printHeap();
+        System.out.println("The element which was removed is: " + heap.remove());
+        System.out.println("Heap After removing an element: ");
+        heap.printHeap();
+    }
+}

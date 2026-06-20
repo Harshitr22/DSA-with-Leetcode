@@ -1,0 +1,114 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Heap {
+    List<Integer> heap;
+
+    Heap(){
+        this.heap = new ArrayList<>();
+    }
+
+    public ArrayList<Integer> getHeap(){
+        return new ArrayList<>(heap);
+    }
+
+    public void printHeap() {
+        if (heap.isEmpty()) { System.out.println("Empty heap"); return; }
+
+        int h = (int)(Math.log(heap.size()) / Math.log(2)) + 1;
+        int width = 4 * (1 << (h - 1));
+
+        for (int depth = 0; depth < h; depth++) {
+            char[] values = new char[width];
+            char[] arrows = new char[width];
+            for (int i = 0; i < width; i++) { values[i] = ' '; arrows[i] = ' '; }
+
+            fill(0, depth, 0, width, values, arrows);
+
+            System.out.println(new String(values).stripTrailing());
+            if (depth < h - 1)
+                System.out.println(new String(arrows).stripTrailing());
+        }
+    }
+
+    private void fill(int index, int depth, int lo, int hi, char[] values, char[] arrows) {
+        if (index >= heap.size()) return;
+        int mid = (lo + hi) / 2;
+
+        if (depth == 0) {
+            String val = String.valueOf(heap.get(index));
+            int start  = mid - val.length() / 2;
+            for (int i = 0; i < val.length(); i++) values[start + i] = val.charAt(i);
+
+            int q = (hi - lo) / 4;
+            if (2 * index + 1 < heap.size()) arrows[lo + q]     = '↙';
+            if (2 * index + 2 < heap.size()) arrows[lo + 3 * q] = '↘';
+        } else {
+            fill(2 * index + 1, depth - 1, lo,  mid, values, arrows);
+            fill(2 * index + 2, depth - 1, mid, hi,  values, arrows);
+        }
+    }
+
+    public int getLeftChild(int index){
+        return 2*index + 1;
+    }
+
+    public int getRightChild(int index){
+        return 2*index + 2;
+    }
+
+    public int parent(int index){
+        return (index-1)/2;
+    }
+
+    public void swap(int index1, int index2){
+        int temp = heap.get(index1);
+        heap.set(index1, heap.get(index2));
+        heap.set(index2, temp);
+    }
+
+    //Adding a new element to the heap
+    public void insert(int value){
+        heap.add(value);
+        int current = heap.size()-1;
+        while (current > 0 && heap.get(parent(current)) < heap.get(current)){
+            swap(current, parent(current));
+            current = parent(current);
+        }
+    }
+
+    //Removing an element from the heap
+    public Integer remove(){
+        if(heap.isEmpty()) return null;
+        if(heap.size() == 1){
+            return heap.remove(0);
+        }
+        int maxValue = heap.get(0);
+        heap.set(0, heap.remove(heap.size()-1));
+        sinkDown(0);
+
+        return maxValue;
+    }
+
+    public void sinkDown(int index){
+        int maxIndex = index;
+        while(true) {
+            int leftChild = getLeftChild(index);
+            int rightChild = getRightChild(index);
+
+            if (leftChild < heap.size() - 1 && heap.get(leftChild) > heap.get(maxIndex)) {
+                maxIndex = leftChild;
+            }
+            if (rightChild < heap.size() - 1 && heap.get(rightChild) > heap.get(maxIndex)) {
+                maxIndex = rightChild;
+            }
+
+            if (maxIndex != index) {
+                swap(index, maxIndex);
+                index = maxIndex;
+            } else {
+                return;
+            }
+        }
+    }
+}
