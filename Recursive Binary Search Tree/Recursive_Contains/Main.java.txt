@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args){
+
+        RecursiveBST myRBST = new RecursiveBST();
+        myRBST.printTree();
+        System.out.println(); 
+
+        System.out.println("Searching for a node in the tree using recursion: ");
+        int node = 10;
+        myRBST.printTree();
+        System.out.println("The Node " + "(" + node + ") was found: " + myRBST.rContains(node));
+        System.out.println();
+    }
+
+}

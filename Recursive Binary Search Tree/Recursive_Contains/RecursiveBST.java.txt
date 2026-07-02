@@ -1,0 +1,69 @@
+public class RecursiveBST {
+    private Node root;
+
+    class Node{
+        int value;
+        Node left;
+        Node right;
+
+        Node(int value){
+            this.value = value;
+        }
+    }
+
+    public void printTree() {
+        if (root == null) { System.out.println("Empty tree"); return; }
+
+        int h = height(root);
+        int width = 4 * (1 << (h - 1));
+
+        for (int depth = 0; depth < h; depth++) {
+            char[] values = new char[width];
+            char[] arrows = new char[width];
+            for (int i = 0; i < width; i++) { values[i] = ' '; arrows[i] = ' '; }
+
+            fill(root, depth, 0, width, values, arrows);
+
+            System.out.println(new String(values).stripTrailing());
+            if (depth < h - 1)
+                System.out.println(new String(arrows).stripTrailing());
+        }
+    }
+
+    private void fill(Node node, int depth, int lo, int hi, char[] values, char[] arrows) {
+        if (node == null) return;
+        int mid = (lo + hi) / 2;
+
+        if (depth == 0) {
+            // ── write value centered at mid ──────────────────────────────
+            String val = String.valueOf(node.value);
+            int start  = mid - val.length() / 2;
+            for (int i = 0; i < val.length(); i++) values[start + i] = val.charAt(i);
+
+            // ── write arrows at ¼ and ¾ of the slot ─────────────────────
+            int q = (hi - lo) / 4;
+            if (node.left  != null) arrows[lo + q]     = '↙';
+            if (node.right != null) arrows[lo + 3 * q] = '↘';
+        } else {
+            fill(node.left,  depth - 1, lo,  mid, values, arrows);
+            fill(node.right, depth - 1, mid, hi,  values, arrows);
+        }
+    }
+
+    private int height(Node node) {
+        if (node == null) return 0;
+        return 1 + Math.max(height(node.left), height(node.right));
+    }
+
+    public boolean rContains(int value){
+        return rContains(root, value);
+    }
+
+    // Adding a node in the binary search tree using recursion
+    private boolean rContains(Node currentNode, int value){
+        if(currentNode == null) return false;
+        if(currentNode.value == value) return true;
+        if(value > currentNode.value) return rContains(currentNode.right, value);
+        else return rContains(currentNode.left, value);
+    }
+}
