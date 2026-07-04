@@ -10,6 +10,15 @@ public class Main {
         myRBST.printTree();
         System.out.println("The Node " + "(" + node + ") was found: " + myRBST.rContains(node));
         System.out.println();
+
+        System.out.println("Inserting a new Node/element in the tree following the hierarchy using recursion: ");
+        myRBST.rInsert(23);
+        myRBST.rInsert(90);
+        myRBST.rInsert(80);
+        myRBST.rInsert(10);
+        myRBST.rInsert(17);
+        myRBST.printTree();
+        System.out.println();
     }
 
 }
