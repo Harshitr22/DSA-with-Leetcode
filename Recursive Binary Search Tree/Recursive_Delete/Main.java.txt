@@ -19,6 +19,15 @@ public class Main {
         myRBST.rInsert(17);
         myRBST.printTree();
         System.out.println();
+
+
+        System.out.println("Deleting a node from the tree using recursion: ");
+        System.out.println("Tree before deleting:");
+        myRBST.printTree();
+        myRBST.rDelete(10);
+        System.out.println("Tree after deleting:");
+        myRBST.printTree();
+        System.out.println();
     }
 
 }
