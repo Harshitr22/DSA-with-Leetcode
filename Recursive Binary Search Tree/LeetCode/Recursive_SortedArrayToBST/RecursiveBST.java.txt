@@ -54,6 +54,20 @@ public class RecursiveBST {
         if (node == null) return 0;
         return 1 + Math.max(height(node.left), height(node.right));
     }
+	
+     //arranging sorted array into binary search tree
+    public void rSortedArrayToBST(int[] array){
+        root = rSortedArrayToBST(array, 0, array.length-1);
+    }
 
+    private Node rSortedArrayToBST(int[] array, int first, int last){
+        if(first > last) return null;
+
+        int mid = first + (last-first)/2;
+        Node newNode = new Node(mid);
+        newNode.left = rSortedArrayToBST(array, first, mid-1);
+        newNode.right = rSortedArrayToBST(array, mid+1, last);
+        return newNode;
+    }
     
 }
