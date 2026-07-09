@@ -1,0 +1,25 @@
+public class Main {
+    public static void main(String[] args){
+
+        RecursiveBST myRBST = new RecursiveBST();
+        myRBST.printTree();
+        System.out.println(); 
+	
+	 System.out.println("Converting the sorted Array to a BST:");
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        myRBST.printTree();
+        System.out.print("The given array is: ");
+        System.out.print("{ ");
+        for(int i=0; i<array.length; i++){
+            System.out.print(array[i]);
+            if(i != array.length-1) System.out.print(", ");
+        }
+        System.out.print(" }");
+        System.out.println();
+        myRBST.rSortedArrayToBST(array);
+        myRBST.printTree();
+        System.out.println();
+        
+    }
+
+}
