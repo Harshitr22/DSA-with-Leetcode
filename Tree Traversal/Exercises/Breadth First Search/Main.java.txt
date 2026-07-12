@@ -3,13 +3,22 @@ public class Main {
         Graph graph = new Graph();
         graph.printGraph();
 
-         //Adding a new Edge in the graph
-        System.out.println("Adding a new vertex in the graph");
-        System.out.print("The Elements in the list are: ");
-        graph.printGraph();
-        System.out.println("The edge was was added in the graph: " + graph.addEdge("C","A"));
-        System.out.println("The edge was was added in the graph: " + graph.addEdge("B","A"));
-        graph.printGraph();
+         System.out.println("Inserting a new element: ");
+        myTreeTrav.rInsert(47);
+        myTreeTrav.rInsert(21);
+        myTreeTrav.rInsert(18);
+        myTreeTrav.rInsert(27);
+        myTreeTrav.rInsert(76);
+        myTreeTrav.rInsert(52);
+        myTreeTrav.rInsert(82);
+        myTreeTrav.printTree();
+        System.out.println();
+
+        System.out.print("The Breadth First Traversal of the tree, converting it to ArrayList: ");
+        ArrayList<Integer> ans = myTreeTrav.BFS();
+        System.out.println(ans);
+        System.out.println("The BST Traversal of the tree:");
+        myTreeTrav.printTree();
         System.out.println();
 
     }
