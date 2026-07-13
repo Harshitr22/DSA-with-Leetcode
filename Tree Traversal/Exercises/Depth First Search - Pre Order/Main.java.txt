@@ -1,0 +1,25 @@
+public class Main {
+    public static void main(String[] args){
+        Graph graph = new Graph();
+        graph.printGraph();
+
+         System.out.println("Inserting a new element: ");
+        myTreeTrav.rInsert(47);
+        myTreeTrav.rInsert(21);
+        myTreeTrav.rInsert(18);
+        myTreeTrav.rInsert(27);
+        myTreeTrav.rInsert(76);
+        myTreeTrav.rInsert(52);
+        myTreeTrav.rInsert(82);
+        myTreeTrav.printTree();
+        System.out.println();
+
+        System.out.print("The Breadth First Traversal of the tree, converting it to ArrayList: ");
+        ArrayList<Integer> ans = myTreeTrav.BFS();
+        System.out.println(ans);
+        System.out.println("The BST Traversal of the tree:");
+        myTreeTrav.printTree();
+        System.out.println();
+
+    }
+}
