@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args){
+        Graph graph = new Graph();
+        graph.printGraph();
+
+         System.out.println("Inserting a new element: ");
+        myTreeTrav.rInsert(47);
+        myTreeTrav.rInsert(21);
+        myTreeTrav.rInsert(18);
+        myTreeTrav.rInsert(27);
+        myTreeTrav.rInsert(76);
+        myTreeTrav.rInsert(52);
+        myTreeTrav.rInsert(82);
+        myTreeTrav.printTree();
+        System.out.println();
+
+        System.out.println("The Depth First Traversal of the tree, Post-Order Traversal:");
+        myTreeTrav.printTree();
+        ArrayList<Integer> result_Post = myTreeTrav.DFS_PostOrder();
+        System.out.println("The ArrayList version of DFS Post order is: " + result_Post);
+        System.out.println();
+
+    }
+}
