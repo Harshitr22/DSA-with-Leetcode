@@ -1,4 +1,35 @@
 public class Main {
     public static void main(String[] args){
         
+        System.out.println("Insertion Sort: ");
+        int[] array3 = {4,2,6,5,1,3};
+        System.out.println("Before Sorting: ");
+        System.out.print("{ ");
+        for(int i = 0; i<array3.length; i++){
+            System.out.print(array3[i] + " ");
+            if(i != array3.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        insertionSort(array3);
+        System.out.println("After Sorting: ");
+        System.out.print("{ ");
+        for(int i = 0; i<array3.length; i++){
+            System.out.print(array3[i] + " ");
+            if(i != array3.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        System.out.println();
+    }
+
+    public static void insertionSort(int[] array){
+        for(int i = 1; i<array.length; i++){
+            int temp = array[i];
+            int j = i-1;
+            while(j > -1 && temp < array[j]){
+                array[j+1] = array[j];
+                array[j] = temp;
+                j--;
+            }
+        }
+    }
 }
