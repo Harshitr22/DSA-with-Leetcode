@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+
+        System.out.println("Quick Sort: ");
+        int[] arrayQS = {4,2,6,5,1,3};
+        System.out.println("Before Sorting: ");
+        System.out.print("{ ");
+        for(int i = 0; i<arrayQS.length; i++){
+            System.out.print(arrayQS[i] + " ");
+            if(i != arrayMS.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        quickSort(arrayQS);
+        System.out.println("After Sorting: ");
+        System.out.print("{ ");
+        for(int i = 0; i<arrayQS.length; i++){
+            System.out.print(arrayQS[i] + " ");
+            if(i != arrayQS.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+    }
+
+    public static void quickSort(int[] array){
+        if(array.length == 1) return ;
+        quickSortHelper(array, 0, array.length-1);
+    }
+
+    public static void quickSortHelper(int[] array, int start, int end){
+        if(start < end){
+            int pivotIndex = pivot(array, start, end);
+            quickSortHelper(array, start, pivotIndex-1);
+            quickSortHelper(array, pivotIndex+1, end);
+        }
+    }
+
+    private static void swap(int[] array, int i, int j){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    private static int pivot(int[] array, int pivotIndex, int endIndex){
+        int swapIndex = pivotIndex;
+        for(int i = pivotIndex+1; i<=endIndex; i++){
+            if(array[i] < array[pivotIndex]){
+                swapIndex++;
+                swap(array, i, swapIndex);
+            }
+        }
+        swap(array, pivotIndex, swapIndex);
+        return swapIndex;
+    }
+
+}
