@@ -1,0 +1,73 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+
+        System.out.println("LeetCode Exercise: Merge two linked list");
+//        LinkedList LL1 = new LinkedList(1);
+//        LL1.append(3);
+//        LL1.append(5);
+//        LL1.append(7);
+        System.out.println("Before Merging - Linked List 1: ");
+        myLL.printList();
+        LinkedList LL2 = new LinkedList(2);
+        LL2.append(4);
+        LL2.append(6);
+        LL2.append(8);
+        System.out.println();
+        System.out.println("Before Merging - Linked List 2: ");
+        LL2.printList();
+        System.out.println();
+       //LinkedList LL3 = myLL.mergeList(LL1, LL2);
+       System.out.println("After Merging the List: ");
+       myLL.mergeList(LL2);
+       myLL.printList();
+       System.out.println();
+       System.out.println("----------------------------------");
+       System.out.println();
+
+    }
+
+    public static int[] mergeSort(int[] array){
+        if(array.length == 1) return array;
+        int midIndex = array.length/2;
+        int[] right = mergeSort(Arrays.copyOfRange(array, 0, midIndex));
+        int[] left = mergeSort(Arrays.copyOfRange(array, midIndex, array.length));
+        return merge(right, left);
+    }
+
+    public static int[] merge(int[] array1, int[] array2){
+        int[] combined = new int[array1.length + array2.length];
+        int index = 0;
+        int i = 0;
+        int j = 0;
+
+        while(i < array1.length && j < array2.length){
+            if(array1[i] < array2[j]){
+                combined[index] = array1[i];
+                index++;
+                i++;
+            }else{
+                combined[index] = array2[j];
+                index++;
+                j++;
+            }
+        }
+
+        while(i<array1.length){
+            combined[index] = array1[i];
+            index++;
+            i++;
+        }
+
+        while(j<array2.length){
+            combined[index] = array2[j];
+            index++;
+            j++;
+        }
+        return combined;
+    }
+
+}
+

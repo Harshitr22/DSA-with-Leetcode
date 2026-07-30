@@ -1,0 +1,117 @@
+public class LinkedList {
+    private Node head;
+    private Node tail;
+    private int length;
+
+    class Node{
+        int value;
+        Node next;
+
+        Node(int value){
+            this.value = value;
+        }
+    }
+
+    LinkedList(int value){
+        Node newNode = new Node(value);
+        head = newNode;
+        tail = newNode;
+        length = 1;
+    }
+
+    LinkedList(){
+        head = null;
+        tail = null;
+        length = 0;
+    }
+
+    public void printList(){
+        Node temp = head;
+        System.out.print("The Items in List are: ");
+        while(temp != null){
+            System.out.print( temp.value + " -> ");
+            temp = temp.next;
+        }
+        System.out.print("null");
+        System.out.println();
+    }
+
+    public Node getHead(){
+        return head;
+    }
+
+    public int getLength(){
+        return length;
+    }
+
+    public void append(int value) {
+        Node newNode = new Node(value);
+        if (length == 0) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+        length++;
+    }
+
+    public int length() {
+        return length;
+    }
+  
+
+    public LinkedList mergeList(LinkedList list1, LinkedList list2){
+        Node otherHead = list2.getHead();
+        LinkedList mergedList = new LinkedList();
+        Node dummyHead = new Node(0);
+        Node currentOne = list1.getHead();
+        Node currentTwo = list2.getHead();
+
+        while(currentOne != null && currentTwo != null){
+            if(currentOne.value > currentTwo.value){
+                mergedList.append(currentTwo.value);
+                currentTwo = currentTwo.next;
+            }else{
+                mergedList.append(currentOne.value);
+                currentOne = currentOne.next;
+            }
+        }
+
+        while(currentOne != null){
+            mergedList.append(currentOne.value);
+            currentOne = currentOne.next;
+        }
+        while(currentTwo != null){
+            mergedList.append(currentTwo.value);
+            currentTwo = currentTwo.next;
+        }
+        return mergedList;
+    }
+
+    public void mergeList(LinkedList list){
+      if(list == null) return;
+      Node otherHead = list.getHead();
+      Node dummyHead = new Node(0);
+      Node current = dummyHead;
+      while(head != null && otherHead != null){
+          if(head.value <  otherHead.value){
+              current.next = head;
+              head = head.next;
+          }else{
+              current.next = otherHead;
+              otherHead = otherHead.next;
+          }
+          current = current.next;
+      }
+      if(head != null){
+          current.next = head;
+      }else{
+          current.next = otherHead;
+          tail = list.tail;
+      }
+      head = dummyHead.next;
+      length += list.length;
+    }
+}
+
