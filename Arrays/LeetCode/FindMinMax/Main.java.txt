@@ -1,0 +1,40 @@
+import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args){
+
+        System.out.println("Finding Min/Max of an array: ");
+        System.out.print("The Elements in the array are: ");
+        int[] arrayMM = {-5, -3, -8, -1, -6, -9};
+        System.out.print("{ ");
+        for(int i = 0; i< arrayMM.length; i++){
+            System.out.print(arrayMM[i] + " ");
+            if(i != arrayMM.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        int[] ans = findMinMax(arrayMM);
+        System.out.println("The max and min number of the array are: ");
+        System.out.print("{ ");
+        for(int i = 0; i< ans.length; i++){
+            System.out.print(ans[i] + " ");
+            if(i != ans.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+    }
+
+    public static int[] findMinMax(int[] array){
+        int mix = array[array.length-1];
+        int min = array[0];
+        for(int num: array){
+            if(num < min) min = num;
+            if(num > mix) mix = num;
+        }
+        return new int[]{mix, min};
+    }
+}
