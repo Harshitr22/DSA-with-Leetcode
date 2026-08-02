@@ -1,0 +1,32 @@
+import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args){
+
+        System.out.println("Finding longest string in the array: ");
+        System.out.print("The Strings in the array are: ");
+        String[] strings = {"java", "python", "javascript", "c"};
+        System.out.print("{ ");
+        for(int i = 0; i< strings.length; i++){
+            System.out.print(strings[i] + " ");
+            if(i != strings.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        System.out.println("The Longest string in the given array is: " + findLongestString(strings));
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+    }
+
+    public static String findLongestString(String[] array){
+        String word = "";
+        for(String s: array) {
+            if (s.length() > word.length()) word = s;
+        }
+        return word;
+    }
+
+}
