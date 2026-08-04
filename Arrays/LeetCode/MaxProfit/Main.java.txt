@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+
+      System.out.println("Finding the maximum profit that can be achieved: ");
+        System.out.println("The Index refers to the day and elements refers to the price of teh stock: ");
+        int[] arrayMP = {7, 6, 5, 4, 3, 2, 1};
+        System.out.print("{ ");
+        for(int i = 0; i< arrayMP.length; i++){
+            System.out.print(arrayMP[i] + " ");
+            if(i != arrayMP.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        int profit = maxProfit(arrayMP);
+        System.out.println("The maximum profit can be made by selling and buying stock is: " + profit);
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+
+    }
+
+    public static int maxProfit(int[] array){
+        int maxProfit = 0;
+
+        for(int i = 0; i < array.length-1; i++) {
+            for(int j = i+1; j < array.length; j++) {
+                int profit = array[j] - array[i];
+                if(profit > maxProfit){
+                    maxProfit = array[j];
+                }
+            }
+        }
+        return maxProfit;
+    }
+}
