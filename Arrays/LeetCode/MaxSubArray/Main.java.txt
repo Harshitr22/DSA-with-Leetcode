@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+
+      System.out.println("Finding an sub array with maximum sum: ");
+        System.out.print("The Elements in the array are: ");
+        int[] arrayMS = {-1, -2, -3, -4, -5};
+        System.out.print("{ ");
+        for(int i = 0; i< arrayMS.length; i++){
+            System.out.print(arrayMS[i] + " ");
+            if(i != arrayMS.length-1) System.out.print(", ");
+        }
+        System.out.println("}");
+        int max = maxSubArray(arrayMS);
+        System.out.println("The Maximum sum of all the possible sub array is: " + max);
+        System.out.println();
+        System.out.println("----------------------------------");
+        System.out.println();
+    }
+
+     public static int maxSubArray(int[] array) {
+       int maxSum = array[0];
+       int currentSum = array[0];
+       for (int i = 1; i < array.length; i++) {
+           currentSum = Math.max(currentSum + array[i], array[i]);
+           maxSum = Math.max(currentSum, maxSum);
+       }
+       return maxSum;
+    }
+}
